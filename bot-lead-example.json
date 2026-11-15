@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "name": "Учебная заявка: имя и контакт"
+  },
+  "nodes": [
+    {
+      "id": "00c510f8-09a8-4c86-9e77-1db321dfcff3",
+      "version": 1,
+      "position": {
+        "x": 0,
+        "y": 100
+      },
+      "type": "start",
+      "props": {
+        "command": "start",
+        "description": ""
+      }
+    },
+    {
+      "id": "c888f1f9-a282-4985-9978-80534ef7a0cd",
+      "version": 1,
+      "position": {
+        "x": 270,
+        "y": 100
+      },
+      "type": "message",
+      "props": {
+        "text": "Учебный пример: запись на консультацию. Хотите оставить заявку?",
+        "buttons": [
+          {
+            "id": "request",
+            "kind": "next",
+            "label": "Оставить заявку"
+          }
+        ]
+      }
+    },
+    {
+      "id": "53ced05a-a883-4313-a89b-f556f6271cc5",
+      "version": 1,
+      "position": {
+        "x": 620,
+        "y": 100
+      },
+      "type": "question",
+      "props": {
+        "text": "Как вас зовут? Это учебный пример.",
+        "variable": "name",
+        "expects": "any",
+        "retryText": "Не получилось разобрать ответ. Попробуйте ещё раз."
+      }
+    },
+    {
+      "id": "f25d87a0-8c0d-4740-9be7-33bd4a463d72",
+      "version": 1,
+      "position": {
+        "x": 970,
+        "y": 100
+      },
+      "type": "question",
+      "props": {
+        "text": "Оставьте email для связи. Это учебный пример.",
+        "variable": "contact",
+        "expects": "email",
+        "retryText": "Не получилось разобрать ответ. Попробуйте ещё раз."
+      }
+    },
+    {
+      "id": "50ce3eae-e7ce-4aa9-b184-028d6388ad76",
+      "version": 1,
+      "position": {
+        "x": 1320,
+        "y": 100
+      },
+      "type": "lead",
+      "props": {
+        "title": "Учебная заявка",
+        "fields": [
+          {
+            "variable": "name",
+            "label": "Имя"
+          },
+          {
+            "variable": "contact",
+            "label": "Email"
+          }
+        ],
+        "text": "Учебная заявка принята."
+      }
+    },
+    {
+      "id": "24fe6803-4e8f-4c8c-97e2-d5d339b44f0c",
+      "version": 1,
+      "position": {
+        "x": 1670,
+        "y": 100
+      },
+      "type": "message",
+      "props": {
+        "text": "Готово. Это учебный сценарий. Перед работой с клиентами замените учебные тексты своими.",
+        "buttons": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "from": "00c510f8-09a8-4c86-9e77-1db321dfcff3",
+      "fromHandle": "next",
+      "to": "c888f1f9-a282-4985-9978-80534ef7a0cd"
+    },
+    {
+      "id": "e2",
+      "from": "c888f1f9-a282-4985-9978-80534ef7a0cd",
+      "fromHandle": "request",
+      "to": "53ced05a-a883-4313-a89b-f556f6271cc5"
+    },
+    {
+      "id": "e3",
+      "from": "53ced05a-a883-4313-a89b-f556f6271cc5",
+      "fromHandle": "next",
+      "to": "f25d87a0-8c0d-4740-9be7-33bd4a463d72"
+    },
+    {
+      "id": "e4",
+      "from": "f25d87a0-8c0d-4740-9be7-33bd4a463d72",
+      "fromHandle": "next",
+      "to": "50ce3eae-e7ce-4aa9-b184-028d6388ad76"
+    },
+    {
+      "id": "e5",
+      "from": "50ce3eae-e7ce-4aa9-b184-028d6388ad76",
+      "fromHandle": "next",
+      "to": "24fe6803-4e8f-4c8c-97e2-d5d339b44f0c"
+    }
+  ]
+}
